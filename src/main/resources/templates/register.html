@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}">
+</head>
+<body>
+<div class="header">MoneyFlow</div>
+<div class="registration-container">
+    <div class="message" th:if="${message != null}">
+        [[${message}]]
+    </div>
+    <h1>Create Account</h1>
+    <form th:action="@{/registration}" method="post" role="form" th:object="${user}">
+        <div class="input-group">
+            <label for="first_name">First Name:</label>
+            <input th:field="*{userFirstName}" type="text" id="first_name" name="first_name" placeholder="Enter First Name:" required>
+        </div>
+        <div class="input-group">
+            <label for="last_name">Last Name:</label>
+            <input th:field="*{userLastName}" type="text" id="last_name" name="last_name" placeholder="Enter Last Name:" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input th:field="*{userEmail}" type="email" id="email" name="email" placeholder="Enter Email:" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input th:field="*{userPassword}" type="password" id="password" name="password" placeholder="Enter Password:" required>
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+    <div class="message">
+        <p>Welcome! Please fill out all fields to create your account.</p>
+    </div>
+</div>
+</body>
+</html>

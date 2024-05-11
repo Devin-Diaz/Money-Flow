@@ -1,0 +1,95 @@
+/* General page styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+    background-color: #0072B5;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #7FD13B; /* Highlight using secondary color */
+}
+
+/* Registration container styles */
+.registration-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 5px solid #0072B5; /* Emphasizing primary color */
+}
+
+/* Form header */
+h1 {
+    color: #0072B5;
+    margin-bottom: 20px;
+}
+
+/* Input groups */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px solid #0072B5; /* Emphasizing primary color */
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #7FD13B; /* Emphasizing secondary color */
+    box-shadow: 0 0 4px #7FD13B;
+}
+
+/* Submit button */
+button {
+    background-color: #7FD13B;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #6bba33;
+}
+
+/* Message div styles */
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+    color: #333;
+}
