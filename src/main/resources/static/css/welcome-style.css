@@ -1,0 +1,106 @@
+/* General page styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    min-height: 100vh; /* Ensures page fills entire screen height */
+}
+
+/* Main header styles */
+.header {
+    background-color: #0072B5;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #7FD13B; /* Highlight using secondary color */
+}
+
+/* Welcome container styles */
+.welcome-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 500px;
+    text-align: center;
+    margin-top: 30px;
+    flex-grow: 1; /* Allows the main container to expand */
+    border-top: 5px solid #0072B5; /* Emphasizing primary color */
+}
+
+/* Welcome message */
+h1 {
+    color: #0072B5;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Bullet points */
+ul {
+    text-align: left;
+    margin: 20px auto;
+    padding-left: 20px;
+    list-style-type: disc;
+    color: #333;
+    font-size: 14px;
+    width: 80%;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Button link styles */
+a.button {
+    display: inline-block;
+    background-color: #7FD13B;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+a.button:hover {
+    background-color: #6bba33;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #666;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #0072B5;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

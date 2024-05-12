@@ -22,6 +22,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+
     @GetMapping("/registration")
     public String getRegistrationPage(@ModelAttribute("user") UserDto userDto) {
         return "register";
@@ -52,7 +57,5 @@ public class UserController {
         model.addAttribute("user", userDetails);
         return "admin-dashboard";
     }
-
-
 
 }

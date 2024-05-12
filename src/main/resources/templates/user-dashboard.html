@@ -1,99 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - MoneyFlow</title>
-    <style>
-        /* General page styles */
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f5f5f5;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Main header styles */
-        .header {
-            background-color: #0072B5;
-            color: white;
-            width: 100%;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-bottom: 5px solid #7FD13B; /* Highlight using secondary color */
-        }
-
-        /* Dashboard container styles */
-        .dashboard-container {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 600px;
-            text-align: center;
-            margin-top: 30px;
-            border-top: 5px solid #0072B5; /* Emphasizing primary color */
-        }
-
-        /* Dashboard header */
-        h1 {
-            color: #0072B5;
-            margin-bottom: 20px;
-        }
-
-        /* Section styles */
-        .section {
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .section-header {
-            font-size: 18px;
-            font-weight: bold;
-            color: #0072B5;
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: #333;
-            font-size: 14px;
-        }
-
-        /* General link button */
-        a.button {
-            display: inline-block;
-            background-color: #7FD13B;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        a.button:hover {
-            background-color: #6bba33;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{../css/user-dashboard-style.css}">
 </head>
 <body>
 <div class="header">MoneyFlow</div>
-<div class="dashboard-container">
-    <h1>Welcome to your Dashboard, [[${user.getUserFirstName()}]]!</h1>
-
-    <div class="section">
-        <span sec:authorize="isAuthenticated()">
-        <a th:href="@{/logout}" class="button">Logout</a>
-        </span>
+<div class="dashboard">
+    <!-- Sidebar - Expense Actions -->
+    <div class="sidebar">
+        <h2>Expense Actions</h2>
+        <a href="/new-expense">New Expense</a>
+        <a href="/edit-expense">Edit Expense</a>
+        <a href="/delete-expense">Delete Expense</a>
+        <a href="/new-budget">New Budget</a>
     </div>
 
+    <!-- Main dashboard content -->
+    <div class="main-content">
+        <h1>Welcome to your Dashboard, [[${user.getUserFirstName()}]]!</h1>
+        <div class="budget">Your Budget: $[Your Budget Amount]</div>
+        <table class="expense-grid">
+            <thead>
+            <tr>
+                <th>Type</th>
+                <th>Store</th>
+                <th>Specific Item</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Add rows dynamically here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sidebar - User Settings -->
+    <div class="sidebar">
+        <h2>User Settings</h2>
+        <a href="/edit-first-name">Edit First Name</a>
+        <a href="/edit-last-name">Edit Last Name</a>
+        <a href="/edit-email">Edit Email</a>
+        <a href="/edit-password">Edit Password</a>
+        <a href="/logout">Logout</a>
+    </div>
 </div>
 </body>
 </html>
