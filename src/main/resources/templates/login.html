@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" th:href="@{../css/register-login-style.css}">
+    <!-- Use context-relative path to ensure it resolves correctly -->
+    <link rel="stylesheet" th:href="@{/css/register-login-style.css}">
 </head>
 <body>
 <div class="header">MoneyFlow</div>

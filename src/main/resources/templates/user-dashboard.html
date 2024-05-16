@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - MoneyFlow</title>
-    <link rel="stylesheet" th:href="@{../css/user-dashboard-style.css}">
+    <link rel="stylesheet" th:href="@{/css/user-dashboard-style.css}">
 </head>
 <body>
 <div class="header">MoneyFlow</div>
@@ -12,7 +12,7 @@
     <!-- Sidebar - Expense Actions -->
     <div class="sidebar">
         <h2>Expense Actions</h2>
-        <a href="/expenses/new-expense">New Expense</a>
+        <a th:href="@{/expenses/new-expense}" th:onclick="'return checkBudget(' + ${user.budget} + ');'">New Expense</a>
         <a href="/edit-expense">Edit Expense</a>
         <a href="/delete-expense">Delete Expense</a>
         <a href="/new-budget">New Budget</a>
@@ -48,5 +48,19 @@
         <a href="/logout">Logout</a>
     </div>
 </div>
+
+
+    <script>
+        function checkBudget(userBudget) {
+            if(userBudget == null || userBudget <= 0) {
+                alert("BUDGET MUST BE GREATER THAN $0 TO BEGIN RECORDING EXPENSES!")
+                console.error("Budget is null or less than or equal to 0.")
+                return false;
+            }
+            console.log('HELLO WORLD!');
+            return true;
+        }
+    </script>
+
 </body>
 </html>
