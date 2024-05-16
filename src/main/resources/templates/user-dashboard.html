@@ -17,7 +17,7 @@
         <a th:href="@{/expenses/new-expense}" th:onclick="'return checkBudget(' + ${user.budget} + ');'">New Expense</a>
         <a href="/edit-expense">Edit Expense</a>
         <a href="/delete-expense">Delete Expense</a>
-        <a href="/new-budget">New Budget</a>
+        <a th:href="@{/expenses/new-budget}">New Budget</a>
     </div>
 
     <!-- Main dashboard content -->
