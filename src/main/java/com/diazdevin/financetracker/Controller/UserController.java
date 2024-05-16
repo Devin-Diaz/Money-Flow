@@ -1,8 +1,11 @@
 package com.diazdevin.financetracker.Controller;
 
 import com.diazdevin.financetracker.Dto.UserDto;
+import com.diazdevin.financetracker.Security.CustomUserDetails;
 import com.diazdevin.financetracker.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -33,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String saveUser(@ModelAttribute("user")UserDto userDto, Model model) {
+    public String saveUser(@ModelAttribute("user") UserDto userDto, Model model) {
         userService.saveUser(userDto);
         model.addAttribute("message", "Registered Successfully!");
         return "register";
@@ -47,7 +50,10 @@ public class UserController {
     @GetMapping("user-page")
     public String userPage (Model model, Principal principal) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-        model.addAttribute("user", userDetails);
+        if (userDetails instanceof CustomUserDetails) {
+            CustomUserDetails customUserDetails = (CustomUserDetails) userDetails;
+            model.addAttribute("user", customUserDetails.getUser());  // Pass the User object
+        }
         return "user-dashboard";
     }
 
