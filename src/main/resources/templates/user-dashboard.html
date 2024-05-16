@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - MoneyFlow</title>
     <link rel="stylesheet" th:href="@{/css/user-dashboard-style.css}">
-    <script th:src="@{/css/js/script.js}"></script>
-
+    <script th:src="@{/js/script.js}"></script>
 </head>
 <body>
 <div class="header">MoneyFlow</div>
@@ -15,14 +14,14 @@
     <div class="sidebar">
         <h2>Expense Actions</h2>
         <a th:href="@{/expenses/new-expense}" th:onclick="'return checkBudget(' + ${user.budget} + ');'">New Expense</a>
-        <a href="/edit-expense">Edit Expense</a>
-        <a href="/delete-expense">Delete Expense</a>
         <a th:href="@{/expenses/new-budget}">New Budget</a>
+        <a th:href="@{/edit-expense}">Edit Expense</a>
+        <a th:href="@{/delete-expense}">Delete Expense</a>
     </div>
 
     <!-- Main dashboard content -->
     <div class="main-content">
-        <h1>Welcome to your Dashboard, [[${user.getUserFirstName()}]]!</h1>
+        <h1>Welcome to your Dashboard, <span th:text="${user.userFirstName}">User</span>!</h1>
         <div class="budget">Your Budget: $<span th:text="${user != null && user.budget != null ? #numbers.formatDecimal(user.budget, 1, 2) : '0.00'}"></span></div>
 
         <table class="expense-grid">
@@ -36,19 +35,32 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Add rows dynamically here -->
+            <tr th:each="expense : ${expenses}">
+                <td th:text="${expense.category}">Category</td>
+                <td th:text="${expense.payee}">Payee</td>
+                <td th:text="${expense.description}">Description</td>
+                <td th:text="${expense.amount}">Amount</td>
+                <td th:text="${expense.date}">Date</td>
+            </tr>
             </tbody>
         </table>
     </div>
     <!-- Sidebar - User Settings -->
     <div class="sidebar">
         <h2>User Settings</h2>
-        <a href="/edit-first-name">Edit First Name</a>
-        <a href="/edit-last-name">Edit Last Name</a>
-        <a href="/edit-email">Edit Email</a>
-        <a href="/edit-password">Edit Password</a>
-        <a href="/logout">Logout</a>
+        <a th:href="@{/edit-first-name}">Edit First Name</a>
+        <a th:href="@{/edit-last-name}">Edit Last Name</a>
+        <a th:href="@{/edit-email}">Edit Email</a>
+        <a th:href="@{/edit-password}">Edit Password</a>
+        <a th:href="@{/logout}">Logout</a>
     </div>
 </div>
+
+<footer>
+    <p>Need help? Contact us at <a href="mailto:support@moneyflow.com">support@moneyflow.com</a></p>
+    <p>Follow us on <a href="#">Social Media</a></p>
+    <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+</footer>
+
 </body>
 </html>

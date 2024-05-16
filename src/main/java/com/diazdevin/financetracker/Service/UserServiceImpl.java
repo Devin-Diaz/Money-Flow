@@ -27,6 +27,11 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public User findUserById(Long id) {
+        return userRepository.findUserById(id);
+    }
+
     @Transactional
     @Override
     public User initializeBudget(Long userId, BigDecimal initialBudget) {

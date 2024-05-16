@@ -83,13 +83,15 @@ a.button:hover {
 
 /* Footer styles */
 footer {
-    text-align: center;
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
     background-color: #ffffff;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     color: #666;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
 }
 
 footer p {

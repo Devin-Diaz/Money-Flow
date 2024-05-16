@@ -1,7 +1,9 @@
 package com.diazdevin.financetracker.Controller;
 
 import com.diazdevin.financetracker.Dto.UserDto;
+import com.diazdevin.financetracker.Model.Expense;
 import com.diazdevin.financetracker.Security.CustomUserDetails;
+import com.diazdevin.financetracker.Service.ExpenseService;
 import com.diazdevin.financetracker.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -24,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ExpenseService expenseService;
 
     @GetMapping("/welcome")
     public String welcome() {
@@ -53,7 +59,11 @@ public class UserController {
         if (userDetails instanceof CustomUserDetails) {
             CustomUserDetails customUserDetails = (CustomUserDetails) userDetails;
             model.addAttribute("user", customUserDetails.getUser());  // Pass the User object
+            Long userId = getCurrentUserId();
+            List<Expense> expenses = expenseService.findAllExpensesById(userId);
+            model.addAttribute("expenses", expenses);
         }
+
         return "user-dashboard";
     }
 
@@ -62,6 +72,14 @@ public class UserController {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("user", userDetails);
         return "admin-dashboard";
+    }
+
+    private Long getCurrentUserId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() instanceof CustomUserDetails userDetails) {
+            return userDetails.getId();
+        }
+        throw new RuntimeException("User not authenticated");
     }
 
 }

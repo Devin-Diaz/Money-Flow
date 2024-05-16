@@ -11,6 +11,8 @@ public interface UserService {
 
     User saveUser(UserDto userDto);
 
+    User findUserById(Long id);
+
     User initializeBudget(Long userId, BigDecimal budget);
 
 }

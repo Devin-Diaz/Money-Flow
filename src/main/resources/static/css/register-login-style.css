@@ -93,3 +93,28 @@ button:hover {
     border-top: 1px solid #e0e0e0;
     color: #333;
 }
+
+footer {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #ffffff;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #0072B5;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
