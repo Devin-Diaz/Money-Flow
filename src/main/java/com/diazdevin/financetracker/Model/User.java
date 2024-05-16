@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -28,14 +31,21 @@ public class User {
     @Column(name = "password")
     private String userPassword;
 
+    @Column(name = "budget")
+    private BigDecimal budget;
+
     @Column(name = "role")
     private String userRole;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Expense> expenses;
 
     public User(String userFirstName, String userLastName, String userEmail, String userPassword, String userRole) {
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
+        this.budget = BigDecimal.valueOf(0.00);
         this.userRole = userRole;
     }
 

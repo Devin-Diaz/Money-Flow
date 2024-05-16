@@ -12,7 +12,7 @@
     <!-- Sidebar - Expense Actions -->
     <div class="sidebar">
         <h2>Expense Actions</h2>
-        <a href="/new-expense">New Expense</a>
+        <a href="/expenses/new-expense">New Expense</a>
         <a href="/edit-expense">Edit Expense</a>
         <a href="/delete-expense">Delete Expense</a>
         <a href="/new-budget">New Budget</a>
@@ -21,13 +21,14 @@
     <!-- Main dashboard content -->
     <div class="main-content">
         <h1>Welcome to your Dashboard, [[${user.getUserFirstName()}]]!</h1>
-        <div class="budget">Your Budget: $[Your Budget Amount]</div>
+        <div class="budget">Your Budget: $<span th:text="${user != null && user.budget != null ? #numbers.formatDecimal(user.budget, 1, 2) : '0.00'}"></span></div>
+
         <table class="expense-grid">
             <thead>
             <tr>
-                <th>Type</th>
-                <th>Store</th>
-                <th>Specific Item</th>
+                <th>Category</th>
+                <th>Payee</th>
+                <th>Description</th>
                 <th>Amount</th>
                 <th>Date</th>
             </tr>
@@ -37,7 +38,6 @@
             </tbody>
         </table>
     </div>
-
     <!-- Sidebar - User Settings -->
     <div class="sidebar">
         <h2>User Settings</h2>

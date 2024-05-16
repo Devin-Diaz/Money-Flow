@@ -6,6 +6,9 @@ import com.diazdevin.financetracker.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,4 +26,22 @@ public class UserServiceImpl implements UserService {
 
         return userRepository.save(user);
     }
+
+    @Transactional
+    @Override
+    public User initializeBudget(Long userId, BigDecimal initialBudget) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
+
+        // Check if the budget is already set and skip or update based on your business rules
+        if (user.getBudget() == null || BigDecimal.ZERO.compareTo(user.getBudget()) == 0) {
+            user.setBudget(initialBudget);
+            userRepository.save(user);
+        } else {
+            throw new IllegalStateException("Budget already initialized for user ID: " + userId);
+        }
+
+        return user;
+    }
+
 }
