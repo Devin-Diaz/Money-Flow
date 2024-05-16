@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - MoneyFlow</title>
     <link rel="stylesheet" th:href="@{/css/user-dashboard-style.css}">
+    <script th:src="@{/css/js/script.js}"></script>
+
 </head>
 <body>
 <div class="header">MoneyFlow</div>
@@ -48,19 +50,5 @@
         <a href="/logout">Logout</a>
     </div>
 </div>
-
-
-    <script>
-        function checkBudget(userBudget) {
-            if(userBudget == null || userBudget <= 0) {
-                alert("BUDGET MUST BE GREATER THAN $0 TO BEGIN RECORDING EXPENSES!")
-                console.error("Budget is null or less than or equal to 0.")
-                return false;
-            }
-            console.log('HELLO WORLD!');
-            return true;
-        }
-    </script>
-
 </body>
 </html>
