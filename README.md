@@ -28,6 +28,7 @@ As a computer science student, I am constantly looking for ways to improve my fu
 - **CSS**: For styling the application and ensuring a responsive design.
 - **JavaScript**: For client-side interactivity and validation.
 - **HTML**: For structuring the web pages.
+- **MySQL**: For storing User and Expense entities in a well-structured relational database.
 
 ## Screenshots
 <img src="assets/welcome-page.png">
