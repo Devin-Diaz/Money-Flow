@@ -2,6 +2,13 @@
 
 MoneyFlow is a full-stack web application designed to help users manage their personal finances by tracking expenses and setting budgets. This project was developed to enhance my skills in full-stack development, utilizing a variety of modern technologies and frameworks.
 
+## Table of Contents
+
+- [Motivation](#motivation)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+
 ## Motivation
 
 As a computer science student, I am constantly looking for ways to improve my full-stack development skills. The idea behind MoneyFlow was to create a practical application that not only helps users manage their finances but also allows me to gain hands-on experience with various technologies. This project provided an excellent opportunity to work with Spring Boot for backend development, Thymeleaf for server-side templating, and CSS and JavaScript for front-end design and interactivity.
@@ -21,6 +28,12 @@ As a computer science student, I am constantly looking for ways to improve my fu
 - **CSS**: For styling the application and ensuring a responsive design.
 - **JavaScript**: For client-side interactivity and validation.
 - **HTML**: For structuring the web pages.
+- **MySQL**: For storing User and Expense entities in a well-structured relational database.
 
 ## Screenshots
+<img src="assets/welcome-page.png">
+<img src="assets/register-page.png">
+<img src="assets/login-page.png">
+<img src="assets/dashboard-page.png">
+
 
