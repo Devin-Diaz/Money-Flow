@@ -1,0 +1,26 @@
+Spring Boot Full Stack Web App Process:
+
+1. Set up Spring Boot project with needed dependencies. Typically:
+	- Spring Web
+	- Spring Security
+	- Lombok
+	- MySQL Driver
+	- Spring Data JPA
+	- Front end (Thyme-leaf because I'm trash)
+
+2. Create Model class and construct table within class that will be used for DB
+
+3. Connect to DB via application properties and do testing to ensure everything is in sync 
+	- spring.datasource.url=jdbc:mysql://localhost:3306/name_of_db
+	- spring.datasource.username=user
+	- spring.datasource.password=password
+
+4. Create repository, service, and DTO interfaces / implementations 
+
+5. Begin creating controller with needed mappings. Go to functions should be landing page and register pages
+
+6. Start creating frontend templates that will be linked with the controller and model's fields
+
+7. Do testing to ensure frontend is working as intended and data is being saved to DB via backend 
+
+7. Begin working on security
